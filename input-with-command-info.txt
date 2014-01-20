@@ -1,0 +1,62 @@
+open read unformatted unit 41 name "/data/sguthrie/imivsdori/dori_sim/sim1/findtraj/set_c0.5_c-1.6_fr49/trajprop_full.dcd"
+open read unformatted unit 42 name "/data/sguthrie/imivsdori/dori_sim/sim1/findtraj/set_c0.5_c-1.6_fr49/trajprop_full.vel"
+open write unformatted unit 20 name "tpsv_trajs.vel"
+open write formatted unit 81 name "tpsv_trajs.rst"
+open write unformatted unit 19 name "tpsv_trajs.dcd"
+Dynamics RTRJ # entire trajectorie is read at the beginning of a restart
+	Langevin -
+      	begin 817 
+	finalt 300 
+	firstt 300 
+	hsample  # paths are accepted if they start in basin A and ever go through basin B; prob that the system is in B as fn of time is calculated
+	iasors 0 -
+	iasvel 1 
+	ichecw 0 
+	ieqfrq 0 
+	ifirst 41 # First trajectory file to read
+	ifshoot 234 # First point from which to shoot (in units of nsavc)
+	ihbfrq 0 
+	ilbfrq 0 
+	imgfrrq 0 
+	imxs 96 # max number of saved phase points by which to repeat the path in a shifting move. (Shift up to IMXS*NSAVC MD steps long)
+	inbfrq -1 -
+	iprfrq 2000 
+	irst 250 # Saved phase point to save to the restart file (should be close to transition state)
+	iscvel 0 
+	iseed @theseed 
+	isln 118 # Number of saved structures from which to shoot (last saved structure shot is ISLO + ISLN - 1)
+	islo 175 # Lowest saved structure from which to shoot
+	isvf 1000 # Number of paths between writes to the restart file
+->?	itprint 1 # Frequency with which to write order parameter values at basin evaluations
+	iuncrd 19 
+	iunread -1 -
+	iunvelo 20 
+	iunwrite 81 
+-> 	npraccept 100 # Frequency of printing acceptance statistics... this seems useful
+	nprint 1000 
+	nsavcrd 1 -
+	nsavp 200 
+	nsavvelo 1 
+	nstep 500 # The frequency of saving paths to the trajectory and vel files
+	ntfraction 0 # The number of accepted shooting moves in which to scale the kinetic energy by tfraction
+	ntpath 2000 - # Number of paths to calculate
+	path  # Invokes TPS
+	phalf 0.5 # probability of shooting half a trajectory
+	pshoot 0.5 # fraction of moves that are shooting moves
+	skip 1 
+	stop 1317 -
+	tbath 300 
+	teminc 0 
+	tfraction 1 # Amount by which to scale the kinetic energy in each shooting move
+	timestp 0.001 
+	tstruct 300 -
+	twindh 0 
+	twindl 0 
+	vfirst 42 # First vel file to read
+	vfraction 0.5 # Amount to preturb the vel in shooting moves
+
+
+
+
+
+
