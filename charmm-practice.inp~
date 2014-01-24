@@ -1,0 +1,6 @@
+set NMIN 10
+
+calc PROBB = 0.5   !Filler for actual math
+
+calc sigma = SQRT(@PROBB*(1-@PROBB))  !SQRT(@p_B*(1-@p_B)/@N_min)
+

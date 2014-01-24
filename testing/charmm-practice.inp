@@ -1,0 +1,117 @@
+
+
+bomlev -2
+
+set NMIN 10
+
+
+!=================================
+!Read topology and parameter files
+!=================================
+
+open unit 1 form read name "imi_topology.inp"
+read rtf card unit 1
+close unit 1
+
+open unit 1 form read name "imi_parameter.inp"
+read param card unit 1
+close unit 1
+
+set temp = 300
+
+
+!=================================
+!Read current psf and coordinates
+!=================================
+
+open read unit 30 card name "imi.psf"
+read psf unit 30 card
+close unit 30
+
+open read unit 30 card name "imi.crd"
+read coor unit 30 card
+close unit 30
+
+
+!=================================
+!Set quantum regions
+!=================================
+
+QUANTUM SELECT ( -
+  ((resi 80) .and. (type C .or. type O)) .or. -
+  ((resi 81)) .or. -
+  ((resi 82) .and. (type N .or. type HN)) .or. -
+  ((resi 84) .and. (type CH .or. type OH1 .or. type OH2 .or. type NZ .or. type HZ1  -
+	.or. type CE .or. type HE1 .or. type HE2 .or. type CD .or. type HD1 -
+	.or. type HD2 .or. type CG .or. type HG1 .or. type HG2)) .or. -
+  ((resi 128) .and. (type HG1 .or. type OG .or. type CB .or. type HB1 -
+	.or. type HB2)) .or. -
+  ((resi 167) .and. (type CG .or. type CD1 .or. type HD1 .or. type NE1 .or. type HE1 -
+	.or. type CE2 .or. type CZ2 .or. type HZ2 .or. type CH2 .or. type HH2 -
+	.or. type CZ3 .or. type HZ3 .or. type CE3 .or. type HE3 .or. type CD2)) .or. -
+  ((resi 218) .and. (type NZ .or. type HZ1 .or. type HZ2 .or. type HZ3 .or. type CE -
+	.or. type HE1 .or. type HE2 .or. type CD .or. type HD1 .or. type HD2 .or. -
+	type CG .or. type HG1 .or. type HG2)) .or. -
+  ((resi 220) .and. (type C .or. type O)) .or. -
+  ((resi 221) .and. (type C .or. type O .or. type CA .or. type HA .or. type N .or. type HN)) .or. -
+  ((resi 222) .and. (type N .or. type HN)) .or. -
+  ((resi 276)) .or. -
+  ((resi 277)) .or. -
+  ((resi 80) .and. (type CA)) .or. -
+  ((resi 82) .and. (type CA)) .or. -
+  ((resi 84) .and. (type CB)) .or. -
+  ((resi 128) .and. (type CA)) .or. -
+  ((resi 167) .and. (type CB)) .or. -
+  ((resi 218) .and. (type CB)) .or. -
+  ((resi 220) .and. (type CA)) .or. -
+  ((resi 221) .and. (type CB)) .or. -
+  ((resi 222) .and. (type CA))) end -
+glnk select ( -
+  ((resi 80) .and. (type CA)) .or. -
+  ((resi 82) .and. (type CA)) .or. -
+  ((resi 84) .and. (type CB)) .or. -
+  ((resi 128) .and. (type CA)) .or. -
+  ((resi 167) .and. (type CB)) .or. -
+  ((resi 218) .and. (type CB)) .or. -
+  ((resi 220) .and. (type CA)) .or. -
+  ((resi 221) .and. (type CB)) .or. -
+  ((resi 222) .and. (type CA))) end -
+charge 0 -
+remove am1
+
+
+!=================================
+!Set quantum regions
+!=================================
+
+rxncor: define car point select atom A 81 C7 end
+rxncor: define wat point select atom W 277 OH2 end
+rxncor: define og point select atom A 81 OG end
+rxncor: define prot point select atom W 277 H1 end
+rxncor: define kcx point select atom A 84 OH1 end
+
+rxncor: define otemp distance car wat
+rxncor: define twtmp distance car og
+rxncor: define thtmp distance prot kcx
+
+rxncor: define rone scomb twtmp 1 otemp -1
+rxncor: define rtwo scomb thtmp -1 thtmp 0
+
+rxncor: set nrxn 2 rone rtwo
+
+
+!=================================
+!Set up umbrella center with a zero force constant so we can trace it
+!=================================
+
+rxncor: umbr name rone kumb 0 del0 0 form 1
+rxncor: umbr name rtwo kumb 0 del0 0 form 1
+
+@rone
+@rtwo
+
+calc PROBB = 0.5   !Filler for actual math
+
+calc SIGMA = SQRT(@PROBB*(1-@PROBB)/@NMIN)
+
+stop

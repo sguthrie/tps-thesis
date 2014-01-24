@@ -1,0 +1,989 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+                   (CHARMM) - Developmental Version 36a1     August 15, 2008   
+       Copyright(c) 1984-2001  President and Fellows of Harvard College
+                              All Rights Reserved
+      Current operating system: Linux-3.2.0-26-generic(x86_64)@ifrit
+                 Created on  1/23/14 at 19:29:10 by user: sguthrie    
+
+            Maximum number of ATOMS:     60120, and RESidues:       20040
+            Current HEAP size:        10240000, and STACK size:  10000000
+
+ RDTITL>  
+ RDTITL> No title read.
+
+      ***** LEVEL  1 WARNING FROM <RDTITL> *****
+      ***** Title expected.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev -2
+  
+ CHARMM>     
+  
+ CHARMM>    set NMIN 10
+ Parameter: NMIN <- "10"
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    !=================================
+ CHARMM>    !Read topology and parameter files
+ CHARMM>    !=================================
+ CHARMM>     
+  
+ CHARMM>    open unit 1 form read name "imi_topology.inp"
+ VOPEN> Attempting to open::imi_topology.inp::
+ OPNLGU> Unit  1 opened for READONLY access to /bt/home/sguthrie/tps-thesis/testing/imi_topology.inp
+  
+ CHARMM>    read rtf card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>> COMBINED CHARMM ALL-HYDROGEN TOPOLOGY FILE FOR <<<<<<<<<
+ TITLE> *>>>>>>> CHARMM22 PROTEINS AND CHARMM27 NUCLEIC ACIDS <<<<<<<<<<
+ TITLE> *FROM
+ TITLE> *>>>> CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>> AUGUST 1999 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> *>>>>>>> DIRECT COMMENTS TO ALEXANDER D. MACKERELL JR. <<<<<<<<<
+ TITLE> *>>>>>> 410-706-7442 OR EMAIL: ALEX,MMIRIS.AB.UMD.EDU  <<<<<<<<<
+ TITLE> *AND
+ TITLE> *  \\\\ CHARMM27 ALL-HYDROGEN NUCLEIC ACID TOPOLOGY FILE ////
+ TITLE> *  \\\\\\\\\\\\\\\\\\ DEVELOPMENTAL ////////////////////////
+ TITLE> *        ALEXANDER D. MACKERELL JR. AND NICOLAS FOLOPPE
+ TITLE> *                        AUGUST 1999
+ TITLE> *     ALL COMMENTS TO ADM JR.  EMAIL: ALEX,MMIRIS.AB.UMD.EDU
+ TITLE> *                 TELEPHONE: 410-706-7442
+ TITLE> *
+ WARNING from DECODI -- Zero length string being converted to 0
+ RTFRDR> WARNING: Version number is NOT specified.
+  
+ CHARMM>    close unit 1
+ VCLOSE: Closing unit    1 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 1 form read name "imi_parameter.inp"
+ VOPEN> Attempting to open::imi_parameter.inp::
+ OPNLGU> Unit  1 opened for READONLY access to /bt/home/sguthrie/tps-thesis/testing/imi_parameter.inp
+  
+ CHARMM>    read param card unit 1
+
+          PARAMETER FILE BEING READ FROM UNIT  1
+ TITLE> *>>>>>> COMBINED CHARMM ALL-HYDROGEN PARAMETER FILE FOR <<<<<<<<<
+ TITLE> *>>>>>>> CHARMM22 PROTEINS AND CHARMM27 NUCLEIC ACIDS <<<<<<<<<<
+ TITLE> *FROM
+ TITLE> *>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>> AUGUST 1999 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> *>>>>>>> DIRECT COMMENTS TO ALEXANDER D. MACKERELL JR. <<<<<<<<<
+ TITLE> *>>>>>> 410-706-7442 OR EMAIL: ALEX,MMIRIS.AB.UMD.EDU  <<<<<<<<<
+ TITLE> *AND
+ TITLE> *  \\\\ CHARMM27 ALL-HYDROGEN NUCLEIC ACID PARAMETER FILE ////
+ TITLE> *  \\\\\\\\\\\\\\\\\\ DEVELOPMENTAL ////////////////////////
+ TITLE> *       ALEXANDER D. MACKERELL JR. AND NICOLAS FOLOPPE
+ TITLE> *                       AUGUST 1999
+ TITLE> *    ALL COMMENTS TO ADM JR.  EMAIL: ALEX,MMIRIS.AB.UMD.EDU
+ TITLE> *            TELEPHONE: 410-706-7442
+ TITLE> *
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND VOLU         0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND H    1.36    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HC   1.98    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HA   6.88    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HP   8.38    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HB   7.58    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HR1  2.55    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HR3  13.8    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HS   0.86    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND C    1.87    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CA2  13.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CA3  3.40    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CT1  1.02    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CT2  12.6    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CT3  17.4    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPH1 1.75    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPH2 11.5    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPT  2.95    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CY   8.71    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CP1  4.53    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CP2  21.2    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CP3  10.5    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CC   0.36    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPA  13.4    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPB  4.75    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CPM  4.12    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND N    0.10    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NR1  23.0    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NR2  29.1    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NH1  8.98    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NH2  32.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NH3  27.1    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NC2H 28.7    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NC2E 9.75    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NY   23.5    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NP   16.2    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NPH  8.99    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND O    26.7    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND OC   28.7    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND OH1  28.1    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND S    31.6    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND SM   29.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND FE   0.21    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN1  2.32    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN2  1.04    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN3  10.3    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN5  2.03    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN6  10.2    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND HN7  10.4    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN1  3.51    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN2  14.0    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN3  6.59    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN4  2.51    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN5  2.85    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN6  1.12    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN6B 1.36    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN6C 0.19    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN8  0.45    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND CN9  1.58    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN1  15.7    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN2  3.54    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN2U 10.0    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN2G 4.82    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN3  11.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN4  33.5    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN3B 18.0    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND NN3C 26.1    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON1  27.4    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON1C 26.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON2  9.94    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON2B 9.94    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON3  30.4    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON5  25.9    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND ON6  19.6    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND P    0.00    0.00000   0.00000 DONT EXIST
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+ PARRDR> WARNING: ATOMS IN HBOND MG   20.3    0.00000   0.00000 DONT EXIST
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    close unit 1
+ VCLOSE: Closing unit    1 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    set temp = 300
+ Parameter: TEMP <- "300"
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    !=================================
+ CHARMM>    !Read current psf and coordinates
+ CHARMM>    !=================================
+ CHARMM>     
+  
+ CHARMM>    open read unit 30 card name "imi.psf"
+ VOPEN> Attempting to open::imi.psf::
+ OPNLGU> Unit 30 opened for READONLY access to /bt/home/sguthrie/tps-thesis/testing/imi.psf
+  
+ CHARMM>    read psf unit 30 card
+ MAINIO> Protein structure file being read from unit  30.
+ TITLE>  * AUTO-GENERATED CHARMM SCRIPT.
+ TITLE>  *  DATE:    11/19/13     18:18: 6      CREATED BY USER: sguthrie
+ TITLE>  *
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        2   Number of residues   =      246
+         Number of atoms         =     3943   Number of groups     =     1180
+         Number of bonds         =     3943   Number of angles     =     7146
+         Number of dihedrals     =    10430   Number of impropers  =      659
+         Number of cross-terms   =        0
+         Number of HB acceptors  =      366   Number of HB donors  =      442
+         Number of NB exclusions =        0   Total charge =    2.00000
+  
+ CHARMM>    close unit 30
+ VCLOSE: Closing unit   30 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    open read unit 30 card name "imi.crd"
+ VOPEN> Attempting to open::imi.crd::
+ OPNLGU> Unit 30 opened for READONLY access to /bt/home/sguthrie/tps-thesis/testing/imi.crd
+  
+ CHARMM>    read coor unit 30 card
+          SPATIAL COORDINATES BEING READ FROM UNIT 30
+ TITLE> * NONE *
+ TITLE> *  DATE:    12/11/13     18:22:25      CREATED BY USER: SGUTHRIE
+ TITLE> *
+  
+ CHARMM>    close unit 30
+ VCLOSE: Closing unit   30 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    !=================================
+ CHARMM>    !Set quantum regions
+ CHARMM>    !=================================
+ CHARMM>     
+  
+ CHARMM>    QUANTUM SELECT ( -
+ CHARMM>      ((resi 80) .and. (type C .or. type O)) .or. -
+ CHARMM>      ((resi 81)) .or. -
+ CHARMM>      ((resi 82) .and. (type N .or. type HN)) .or. -
+ CHARMM>      ((resi 84) .and. (type CH .or. type OH1 .or. type OH2 .or. type NZ .or. type HZ1  -
+ CHARMM>    	.or. type CE .or. type HE1 .or. type HE2 .or. type CD .or. type HD1 -
+ CHARMM>    	.or. type HD2 .or. type CG .or. type HG1 .or. type HG2)) .or. -
+ CHARMM>      ((resi 128) .and. (type HG1 .or. type OG .or. type CB .or. type HB1 -
+ CHARMM>    	.or. type HB2)) .or. -
+ CHARMM>      ((resi 167) .and. (type CG .or. type CD1 .or. type HD1 .or. type NE1 .or. type HE1 -
+ CHARMM>    	.or. type CE2 .or. type CZ2 .or. type HZ2 .or. type CH2 .or. type HH2 -
+ CHARMM>    	.or. type CZ3 .or. type HZ3 .or. type CE3 .or. type HE3 .or. type CD2)) .or. -
+ CHARMM>      ((resi 218) .and. (type NZ .or. type HZ1 .or. type HZ2 .or. type HZ3 .or. type CE -
+ CHARMM>    	.or. type HE1 .or. type HE2 .or. type CD .or. type HD1 .or. type HD2 .or. -
+ CHARMM>    	type CG .or. type HG1 .or. type HG2)) .or. -
+ CHARMM>      ((resi 220) .and. (type C .or. type O)) .or. -
+ CHARMM>      ((resi 221) .and. (type C .or. type O .or. type CA .or. type HA .or. type N .or. type HN)) .or. -
+ CHARMM>      ((resi 222) .and. (type N .or. type HN)) .or. -
+ CHARMM>      ((resi 276)) .or. -
+ CHARMM>      ((resi 277)) .or. -
+ CHARMM>      ((resi 80) .and. (type CA)) .or. -
+ CHARMM>      ((resi 82) .and. (type CA)) .or. -
+ CHARMM>      ((resi 84) .and. (type CB)) .or. -
+ CHARMM>      ((resi 128) .and. (type CA)) .or. -
+ CHARMM>      ((resi 167) .and. (type CB)) .or. -
+ CHARMM>      ((resi 218) .and. (type CB)) .or. -
+ CHARMM>      ((resi 220) .and. (type CA)) .or. -
+ CHARMM>      ((resi 221) .and. (type CB)) .or. -
+ CHARMM>      ((resi 222) .and. (type CA))) end -
+ CHARMM>    glnk select ( -
+ CHARMM>      ((resi 80) .and. (type CA)) .or. -
+ CHARMM>      ((resi 82) .and. (type CA)) .or. -
+ CHARMM>      ((resi 84) .and. (type CB)) .or. -
+ CHARMM>      ((resi 128) .and. (type CA)) .or. -
+ CHARMM>      ((resi 167) .and. (type CB)) .or. -
+ CHARMM>      ((resi 218) .and. (type CB)) .or. -
+ CHARMM>      ((resi 220) .and. (type CA)) .or. -
+ CHARMM>      ((resi 221) .and. (type CB)) .or. -
+ CHARMM>      ((resi 222) .and. (type CA))) end -
+ CHARMM>    charge 0 -
+ CHARMM>    remove am1
+ SELRPN>    124 atoms have been selected out of   3943
+SQMINI> GLNK: GHO atoms are used
+ SELRPN>      9 atoms have been selected out of   3943
+SQMINI> REMOve: Classical energies within QM atoms are removed.
+SQMINI> No EXGRoup: QM/MM Elec. for link atom host only is removed.
+------------------------------------------------
+SQMINI: Classical atoms excluded from the QM calculation:
+          NONE.
+SQMINI: Quantum mechanical atoms, (* is Connection atom):
+            760 A    80   ALA  CA  
+            766 A    80   ALA  C   
+            767 A    80   ALA  O   
+            768 A    81   SIM  N   
+            769 A    81   SIM  HN  
+            770 A    81   SIM  CA  
+            771 A    81   SIM  HA  
+            772 A    81   SIM  CB  
+            773 A    81   SIM  HB1 
+            774 A    81   SIM  HB2 
+            775 A    81   SIM  OG  
+            776 A    81   SIM  C   
+            777 A    81   SIM  O   
+            778 A    81   SIM  C7  
+            779 A    81   SIM  O7  
+            780 A    81   SIM  C6  
+            781 A    81   SIM  HC6 
+            782 A    81   SIM  C61 
+            783 A    81   SIM  O62 
+            784 A    81   SIM  HO6 
+            785 A    81   SIM  HE1 
+            786 A    81   SIM  HE2 
+            787 A    81   SIM  HE3 
+            788 A    81   SIM  C62 
+            789 A    81   SIM  HEM 
+            790 A    81   SIM  C5  
+            791 A    81   SIM  HC5 
+            792 A    81   SIM  C1  
+            793 A    81   SIM  HC11
+            794 A    81   SIM  HC12
+            795 A    81   SIM  N4  
+            796 A    81   SIM  HN4 
+            797 A    81   SIM  C3  
+            798 A    81   SIM  C2  
+            799 A    81   SIM  S21 
+            800 A    81   SIM  C31 
+            801 A    81   SIM  O31 
+            802 A    81   SIM  O32 
+            803 A    81   SIM  C22 
+            804 A    81   SIM  H221
+            805 A    81   SIM  H222
+            806 A    81   SIM  C23 
+            807 A    81   SIM  H231
+            808 A    81   SIM  H232
+            809 A    81   SIM  N24 
+            810 A    81   SIM  HN24
+            811 A    81   SIM  C25 
+            812 A    81   SIM  HC25
+            813 A    81   SIM  N26 
+            814 A    81   SIM  HN61
+            815 A    81   SIM  HN62
+            816 A    82   THR  N   
+            817 A    82   THR  HN  
+            818 A    82   THR  CA  
+            854 A    84   KCX  CB  
+            858 A    84   KCX  CG  
+            860 A    84   KCX  HG1 
+            861 A    84   KCX  HG2 
+            862 A    84   KCX  CD  
+            863 A    84   KCX  HD1 
+            864 A    84   KCX  HD2 
+            865 A    84   KCX  CE  
+            866 A    84   KCX  HE1 
+            867 A    84   KCX  HE2 
+            868 A    84   KCX  NZ  
+            869 A    84   KCX  HZ1 
+            870 A    84   KCX  CH  
+            871 A    84   KCX  OH1 
+            872 A    84   KCX  OH2 
+           1573 A    128  SER  CA  
+           1575 A    128  SER  CB  
+           1576 A    128  SER  HB1 
+           1577 A    128  SER  HB2 
+           1578 A    128  SER  OG  
+           1579 A    128  SER  HG1 
+           2197 A    167  TRP  CB  
+           2200 A    167  TRP  CG  
+           2201 A    167  TRP  CD1 
+           2202 A    167  TRP  HD1 
+           2203 A    167  TRP  NE1 
+           2204 A    167  TRP  HE1 
+           2205 A    167  TRP  CE2 
+           2206 A    167  TRP  CD2 
+           2207 A    167  TRP  CE3 
+           2208 A    167  TRP  HE3 
+           2209 A    167  TRP  CZ3 
+           2210 A    167  TRP  HZ3 
+           2211 A    167  TRP  CZ2 
+           2212 A    167  TRP  HZ2 
+           2213 A    167  TRP  CH2 
+           2214 A    167  TRP  HH2 
+           3042 A    218  LYS  CB  
+           3045 A    218  LYS  CG  
+           3046 A    218  LYS  HG1 
+           3047 A    218  LYS  HG2 
+           3048 A    218  LYS  CD  
+           3049 A    218  LYS  HD1 
+           3050 A    218  LYS  HD2 
+           3051 A    218  LYS  CE  
+           3052 A    218  LYS  HE1 
+           3053 A    218  LYS  HE2 
+           3054 A    218  LYS  NZ  
+           3055 A    218  LYS  HZ1 
+           3056 A    218  LYS  HZ2 
+           3057 A    218  LYS  HZ3 
+           3073 A    220  GLY  CA  
+           3076 A    220  GLY  C   
+           3077 A    220  GLY  O   
+           3078 A    221  TRP  N   
+           3079 A    221  TRP  HN  
+           3080 A    221  TRP  CA  
+           3081 A    221  TRP  HA  
+           3082 A    221  TRP  CB  
+           3100 A    221  TRP  C   
+           3101 A    221  TRP  O   
+           3102 A    222  GLY  N   
+           3103 A    222  GLY  HN  
+           3104 A    222  GLY  CA  
+           3938 W    276  OH2  OH2 
+           3939 W    276  OH2  H1  
+           3940 W    276  OH2  H2  
+           3941 W    277  OH2  OH2 
+           3942 W    277  OH2  H1  
+           3943 W    277  OH2  H2  
+SQMINI: Quantum mechanical Hydrogen link atoms:
+          NONE.
+SQMINI: Quantum mechanical GHO atoms:
+            760 A    80   ALA  CA  
+            818 A    82   THR  CA  
+            854 A    84   KCX  CB  
+           1573 A    128  SER  CA  
+           2197 A    167  TRP  CB  
+           3042 A    218  LYS  CB  
+           3073 A    220  GLY  CA  
+           3082 A    221  TRP  CB  
+           3104 A    222  GLY  CA  
+------------------------------------------------
+
+      ***** LEVEL  1 WARNING FROM <SQMINI> *****
+      ***** BNBND or BIMAG memory point negative integer.
+      ******************************************
+      BOMLEV ( -2) IS NOT REACHED. WRNLEV IS  5
+
+ GUPQME>    602 unique QM molecule-MM group interactions generated.
+ GUPQME>      0 QM/MM group exclusions generated.
+ GUPQMV>   3864 group interactions generated for   1180 groups.
+ FINDEL: Quantum atom   766 A    80   ALA  C     assigned to element:  C       6
+ FINDEL: Quantum atom   767 A    80   ALA  O     assigned to element:  O       8
+ FINDEL: Quantum atom   768 A    81   SIM  N     assigned to element:  N       7
+ FINDEL: Quantum atom   769 A    81   SIM  HN    assigned to element:  H       1
+ FINDEL: Quantum atom   770 A    81   SIM  CA    assigned to element:  C       6
+ FINDEL: Quantum atom   771 A    81   SIM  HA    assigned to element:  H       1
+ FINDEL: Quantum atom   772 A    81   SIM  CB    assigned to element:  C       6
+ FINDEL: Quantum atom   773 A    81   SIM  HB1   assigned to element:  H       1
+ FINDEL: Quantum atom   774 A    81   SIM  HB2   assigned to element:  H       1
+ FINDEL: Quantum atom   775 A    81   SIM  OG    assigned to element:  O       8
+ FINDEL: Quantum atom   776 A    81   SIM  C     assigned to element:  C       6
+ FINDEL: Quantum atom   777 A    81   SIM  O     assigned to element:  O       8
+ FINDEL: Quantum atom   778 A    81   SIM  C7    assigned to element:  C       6
+ FINDEL: Quantum atom   779 A    81   SIM  O7    assigned to element:  O       8
+ FINDEL: Quantum atom   780 A    81   SIM  C6    assigned to element:  C       6
+ FINDEL: Quantum atom   781 A    81   SIM  HC6   assigned to element:  H       1
+ FINDEL: Quantum atom   782 A    81   SIM  C61   assigned to element:  C       6
+ FINDEL: Quantum atom   783 A    81   SIM  O62   assigned to element:  O       8
+ FINDEL: Quantum atom   784 A    81   SIM  HO6   assigned to element:  H       1
+ FINDEL: Quantum atom   785 A    81   SIM  HE1   assigned to element:  H       1
+ FINDEL: Quantum atom   786 A    81   SIM  HE2   assigned to element:  H       1
+ FINDEL: Quantum atom   787 A    81   SIM  HE3   assigned to element:  H       1
+ FINDEL: Quantum atom   788 A    81   SIM  C62   assigned to element:  C       6
+ FINDEL: Quantum atom   789 A    81   SIM  HEM   assigned to element:  H       1
+ FINDEL: Quantum atom   790 A    81   SIM  C5    assigned to element:  C       6
+ FINDEL: Quantum atom   791 A    81   SIM  HC5   assigned to element:  H       1
+ FINDEL: Quantum atom   792 A    81   SIM  C1    assigned to element:  C       6
+ FINDEL: Quantum atom   793 A    81   SIM  HC11  assigned to element:  H       1
+ FINDEL: Quantum atom   794 A    81   SIM  HC12  assigned to element:  H       1
+ FINDEL: Quantum atom   795 A    81   SIM  N4    assigned to element:  N       7
+ FINDEL: Quantum atom   796 A    81   SIM  HN4   assigned to element:  H       1
+ FINDEL: Quantum atom   797 A    81   SIM  C3    assigned to element:  C       6
+ FINDEL: Quantum atom   798 A    81   SIM  C2    assigned to element:  C       6
+ FINDEL: Quantum atom   799 A    81   SIM  S21   assigned to element:  S      16
+ FINDEL: Quantum atom   800 A    81   SIM  C31   assigned to element:  C       6
+ FINDEL: Quantum atom   801 A    81   SIM  O31   assigned to element:  O       8
+ FINDEL: Quantum atom   802 A    81   SIM  O32   assigned to element:  O       8
+ FINDEL: Quantum atom   803 A    81   SIM  C22   assigned to element:  C       6
+ FINDEL: Quantum atom   804 A    81   SIM  H221  assigned to element:  H       1
+ FINDEL: Quantum atom   805 A    81   SIM  H222  assigned to element:  H       1
+ FINDEL: Quantum atom   806 A    81   SIM  C23   assigned to element:  C       6
+ FINDEL: Quantum atom   807 A    81   SIM  H231  assigned to element:  H       1
+ FINDEL: Quantum atom   808 A    81   SIM  H232  assigned to element:  H       1
+ FINDEL: Quantum atom   809 A    81   SIM  N24   assigned to element:  N       7
+ FINDEL: Quantum atom   810 A    81   SIM  HN24  assigned to element:  H       1
+ FINDEL: Quantum atom   811 A    81   SIM  C25   assigned to element:  C       6
+ FINDEL: Quantum atom   812 A    81   SIM  HC25  assigned to element:  H       1
+ FINDEL: Quantum atom   813 A    81   SIM  N26   assigned to element:  N       7
+ FINDEL: Quantum atom   814 A    81   SIM  HN61  assigned to element:  H       1
+ FINDEL: Quantum atom   815 A    81   SIM  HN62  assigned to element:  H       1
+ FINDEL: Quantum atom   816 A    82   THR  N     assigned to element:  N       7
+ FINDEL: Quantum atom   817 A    82   THR  HN    assigned to element:  H       1
+ FINDEL: Quantum atom   858 A    84   KCX  CG    assigned to element:  C       6
+ FINDEL: Quantum atom   860 A    84   KCX  HG1   assigned to element:  H       1
+ FINDEL: Quantum atom   861 A    84   KCX  HG2   assigned to element:  H       1
+ FINDEL: Quantum atom   862 A    84   KCX  CD    assigned to element:  C       6
+ FINDEL: Quantum atom   863 A    84   KCX  HD1   assigned to element:  H       1
+ FINDEL: Quantum atom   864 A    84   KCX  HD2   assigned to element:  H       1
+ FINDEL: Quantum atom   865 A    84   KCX  CE    assigned to element:  C       6
+ FINDEL: Quantum atom   866 A    84   KCX  HE1   assigned to element:  H       1
+ FINDEL: Quantum atom   867 A    84   KCX  HE2   assigned to element:  H       1
+ FINDEL: Quantum atom   868 A    84   KCX  NZ    assigned to element:  N       7
+ FINDEL: Quantum atom   869 A    84   KCX  HZ1   assigned to element:  H       1
+ FINDEL: Quantum atom   870 A    84   KCX  CH    assigned to element:  C       6
+ FINDEL: Quantum atom   871 A    84   KCX  OH1   assigned to element:  O       8
+ FINDEL: Quantum atom   872 A    84   KCX  OH2   assigned to element:  O       8
+ FINDEL: Quantum atom  1575 A    128  SER  CB    assigned to element:  C       6
+ FINDEL: Quantum atom  1576 A    128  SER  HB1   assigned to element:  H       1
+ FINDEL: Quantum atom  1577 A    128  SER  HB2   assigned to element:  H       1
+ FINDEL: Quantum atom  1578 A    128  SER  OG    assigned to element:  O       8
+ FINDEL: Quantum atom  1579 A    128  SER  HG1   assigned to element:  H       1
+ FINDEL: Quantum atom  2200 A    167  TRP  CG    assigned to element:  C       6
+ FINDEL: Quantum atom  2201 A    167  TRP  CD1   assigned to element:  C       6
+ FINDEL: Quantum atom  2202 A    167  TRP  HD1   assigned to element:  H       1
+ FINDEL: Quantum atom  2203 A    167  TRP  NE1   assigned to element:  N       7
+ FINDEL: Quantum atom  2204 A    167  TRP  HE1   assigned to element:  H       1
+ FINDEL: Quantum atom  2205 A    167  TRP  CE2   assigned to element:  C       6
+ FINDEL: Quantum atom  2206 A    167  TRP  CD2   assigned to element:  C       6
+ FINDEL: Quantum atom  2207 A    167  TRP  CE3   assigned to element:  C       6
+ FINDEL: Quantum atom  2208 A    167  TRP  HE3   assigned to element:  H       1
+ FINDEL: Quantum atom  2209 A    167  TRP  CZ3   assigned to element:  C       6
+ FINDEL: Quantum atom  2210 A    167  TRP  HZ3   assigned to element:  H       1
+ FINDEL: Quantum atom  2211 A    167  TRP  CZ2   assigned to element:  C       6
+ FINDEL: Quantum atom  2212 A    167  TRP  HZ2   assigned to element:  H       1
+ FINDEL: Quantum atom  2213 A    167  TRP  CH2   assigned to element:  C       6
+ FINDEL: Quantum atom  2214 A    167  TRP  HH2   assigned to element:  H       1
+ FINDEL: Quantum atom  3045 A    218  LYS  CG    assigned to element:  C       6
+ FINDEL: Quantum atom  3046 A    218  LYS  HG1   assigned to element:  H       1
+ FINDEL: Quantum atom  3047 A    218  LYS  HG2   assigned to element:  H       1
+ FINDEL: Quantum atom  3048 A    218  LYS  CD    assigned to element:  C       6
+ FINDEL: Quantum atom  3049 A    218  LYS  HD1   assigned to element:  H       1
+ FINDEL: Quantum atom  3050 A    218  LYS  HD2   assigned to element:  H       1
+ FINDEL: Quantum atom  3051 A    218  LYS  CE    assigned to element:  C       6
+ FINDEL: Quantum atom  3052 A    218  LYS  HE1   assigned to element:  H       1
+ FINDEL: Quantum atom  3053 A    218  LYS  HE2   assigned to element:  H       1
+ FINDEL: Quantum atom  3054 A    218  LYS  NZ    assigned to element:  N       7
+ FINDEL: Quantum atom  3055 A    218  LYS  HZ1   assigned to element:  H       1
+ FINDEL: Quantum atom  3056 A    218  LYS  HZ2   assigned to element:  H       1
+ FINDEL: Quantum atom  3057 A    218  LYS  HZ3   assigned to element:  H       1
+ FINDEL: Quantum atom  3076 A    220  GLY  C     assigned to element:  C       6
+ FINDEL: Quantum atom  3077 A    220  GLY  O     assigned to element:  O       8
+ FINDEL: Quantum atom  3078 A    221  TRP  N     assigned to element:  N       7
+ FINDEL: Quantum atom  3079 A    221  TRP  HN    assigned to element:  H       1
+ FINDEL: Quantum atom  3080 A    221  TRP  CA    assigned to element:  C       6
+ FINDEL: Quantum atom  3081 A    221  TRP  HA    assigned to element:  H       1
+ FINDEL: Quantum atom  3100 A    221  TRP  C     assigned to element:  C       6
+ FINDEL: Quantum atom  3101 A    221  TRP  O     assigned to element:  O       8
+ FINDEL: Quantum atom  3102 A    222  GLY  N     assigned to element:  N       7
+ FINDEL: Quantum atom  3103 A    222  GLY  HN    assigned to element:  H       1
+ FINDEL: Quantum atom  3938 W    276  OH2  OH2   assigned to element:  O       8
+ FINDEL: Quantum atom  3939 W    276  OH2  H1    assigned to element:  H       1
+ FINDEL: Quantum atom  3940 W    276  OH2  H2    assigned to element:  H       1
+ FINDEL: Quantum atom  3941 W    277  OH2  OH2   assigned to element:  O       8
+ FINDEL: Quantum atom  3942 W    277  OH2  H1    assigned to element:  H       1
+ FINDEL: Quantum atom  3943 W    277  OH2  H2    assigned to element:  H       1
+ FINDEL: Quantum atom   760 A    80   ALA  CA    assigned to element:  C       6
+ FINDEL: Quantum atom   818 A    82   THR  CA    assigned to element:  C       6
+ FINDEL: Quantum atom   854 A    84   KCX  CB    assigned to element:  C       6
+ FINDEL: Quantum atom  1573 A    128  SER  CA    assigned to element:  C       6
+ FINDEL: Quantum atom  2197 A    167  TRP  CB    assigned to element:  C       6
+ FINDEL: Quantum atom  3042 A    218  LYS  CB    assigned to element:  C       6
+ FINDEL: Quantum atom  3073 A    220  GLY  CA    assigned to element:  C       6
+ FINDEL: Quantum atom  3082 A    221  TRP  CB    assigned to element:  C       6
+ FINDEL: Quantum atom  3104 A    222  GLY  CA    assigned to element:  C       6
+
+  SQMINI> Some atoms will be treated quantum mechanically.
+
+         The number of quantum mechanical atoms   =   124
+         The number of QM/MM H-link atoms         =     0
+         The number of GHO atoms                  =     9
+         The number of molecular mechanical atoms =  3819
+         The number of MM atoms excluded from QM  =  2396
+
+
+QMMM: SINGLET STATE CALCULATION
+QMMM: RHF CALCULATION, NO. OF DOUBLY OCCUPIED ORBITALS: 172
+
+| QMMM: Estimated QM Dynamic Memory Usage
+| QMMM: ---------------------------------------------------
+| QMMM:              QM Atom Type Info :         1680 bytes
+| QMMM:            QM Atom Number List :          496 bytes
+| QMMM:          QM Atomic Number List :          496 bytes
+| QMMM:                QM-MM Pair List :        15280 bytes
+| QMMM:                   QM Atom Mask :         3943 bytes
+| QMMM:           QM Coordinate Arrays :       129152 bytes
+| QMMM:         Scaled MM Charge Array :        31544 bytes
+| QMMM:                QM Force Arrays :        97608 bytes
+| QMMM:                 Density Matrix :       439568 bytes
+| QMMM:          Density Matrix Copies :       879136 bytes
+| QMMM: Fock2 Density Matrix Workspace :        15872 bytes
+| QMMM:                    Fock Matrix :       439568 bytes
+| QMMM:           Eigen Vector Storage :       876488 bytes
+| QMMM: QM-MM Elec Repulsion Integrals :      5692000 bytes
+| QMMM: QM-QM Elec Repulsion Integrals :      1342176 bytes
+| QMMM:  QM 2-Elec Repulsion Integrals :      2192280 bytes
+| QMMM:              1-Electron Matrix :       439568 bytes
+| QMMM:      GHO Gradient memory usage :      2634760 bytes
+| QMMM:       real(DP) parameter storage :       163840 bytes
+| QMMM:      integer parameter storage :         4136 bytes
+| QMMM:         QM-QM RIJ Eqns storage :       430528 bytes
+| QMMM:         QM-MM RIJ Eqns storage :     15653000 bytes
+| QMMM:          real(DP) Scratch arrays :       123966 bytes
+| QMMM:         Integer Scratch arrays :        47316 bytes
+| QMMM: ---------------------------------------------------
+| QMMM:        Total Dynamic Memory Usage:     30.188 Mb
+
+  QMMM: QM Region Cartesian Coordinates (*=GHO atom) 
+  QMMM:    NO.       ATOM         X         Y         Z
+  QMMM:     1        C        26.1843  -48.6890    6.9339
+  QMMM:     2        O        25.0279  -49.0767    6.9744
+  QMMM:     3        N        26.7361  -48.2006    8.0879
+  QMMM:     4        H        27.6768  -47.9454    7.9314
+  QMMM:     5        C        26.3514  -48.5802    9.4185
+  QMMM:     6        H        25.5964  -49.4810    9.3264
+  QMMM:     7        C        27.4680  -48.8646   10.3604
+  QMMM:     8        H        27.1329  -49.0493   11.4205
+  QMMM:     9        H        28.1926  -47.9898   10.4598
+  QMMM:    10        O        28.0954  -50.0939   10.0893
+  QMMM:    11        C        25.5007  -47.4287   10.0477
+  QMMM:    12        O        25.3955  -47.4852   11.2653
+  QMMM:    13        C        29.1409  -50.1080    9.2094
+  QMMM:    14        O        29.4185  -49.0187    8.6097
+  QMMM:    15        C        30.1522  -51.2220    9.2244
+  QMMM:    16        H        30.9794  -50.8323    8.5684
+  QMMM:    17        C        29.8430  -52.5244    8.4541
+  QMMM:    18        O        29.4551  -52.2646    7.1006
+  QMMM:    19        H        29.8432  -51.3743    6.8678
+  QMMM:    20        H        28.2990  -52.7480    9.9750
+  QMMM:    21        H        29.2588  -54.3441    9.5029
+  QMMM:    22        H        28.0307  -53.6928    8.3540
+  QMMM:    23        C        28.8143  -53.3831    9.1339
+  QMMM:    24        H        30.8241  -53.1600    8.4715
+  QMMM:    25        C        30.7603  -51.6444   10.5618
+  QMMM:    26        H        29.9697  -52.2901   10.9390
+  QMMM:    27        C        32.0580  -52.4208   10.3883
+  QMMM:    28        H        32.6532  -52.4278    9.3765
+  QMMM:    29        H        31.8296  -53.5156   10.5920
+  QMMM:    30        N        31.0477  -50.4882   11.4617
+  QMMM:    31        H        30.3400  -50.1262   12.0577
+  QMMM:    32        C        32.3612  -50.7136   11.9695
+  QMMM:    33        C        32.9725  -51.8183   11.3703
+  QMMM:    34        S        34.4427  -52.5232   11.5836
+  QMMM:    35        C        32.9446  -49.6873   12.9174
+  QMMM:    36        O        32.3592  -49.3001   13.9405
+  QMMM:    37        O        34.1207  -49.3023   12.6349
+  QMMM:    38        C        35.2690  -52.3323   13.2465
+  QMMM:    39        H        35.8134  -53.3060   13.3493
+  QMMM:    40        H        34.5565  -52.0725   14.0461
+  QMMM:    41        C        36.3277  -51.2312   13.0896
+  QMMM:    42        H        37.2744  -51.4105   13.6855
+  QMMM:    43        H        35.8429  -50.2574   13.5239
+  QMMM:    44        N        36.7482  -50.8665   11.7527
+  QMMM:    45        H        36.0411  -50.6645   11.0813
+  QMMM:    46        C        37.9957  -51.1245   11.3288
+  QMMM:    47        H        38.6892  -51.4381   12.1800
+  QMMM:    48        N        38.4250  -51.0081   10.0353
+  QMMM:    49        H        37.8367  -50.4453    9.4276
+  QMMM:    50        H        39.3929  -51.1897    9.8781
+  QMMM:    51        N        24.8425  -46.4600    9.3390
+  QMMM:    52        H        25.2373  -46.2034    8.4639
+  QMMM:    53        C        23.0551  -51.2248   12.0991
+  QMMM:    54        H        23.1538  -51.2449   10.9601
+  QMMM:    55        H        22.3394  -52.0737   12.3047
+  QMMM:    56        C        24.3642  -51.4726   12.7879
+  QMMM:    57        H        24.1708  -51.5972   13.8858
+  QMMM:    58        H        25.0678  -50.6315   12.6645
+  QMMM:    59        C        24.9660  -52.7570   12.2355
+  QMMM:    60        H        24.1862  -53.5305   11.9606
+  QMMM:    61        H        25.7216  -53.2724   12.9909
+  QMMM:    62        N        25.7739  -52.6266   11.0417
+  QMMM:    63        H        26.1958  -51.7261   10.8379
+  QMMM:    64        C        25.5867  -53.4881    9.9290
+  QMMM:    65        O        25.9203  -53.0010    8.7972
+  QMMM:    66        O        25.2410  -54.7171   10.0342
+  QMMM:    67        C        28.6211  -51.4615   13.1326
+  QMMM:    68        H        29.6563  -51.7672   13.3956
+  QMMM:    69        H        28.3405  -51.6033   12.0652
+  QMMM:    70        O        28.3648  -50.1340   13.5089
+  QMMM:    71        H        27.4797  -49.9625   13.4038
+  QMMM:    72        C        23.3778  -52.5808    4.6403
+  QMMM:    73        C        24.2878  -52.5997    5.6406
+  QMMM:    74        H        24.9216  -51.7591    6.0191
+  QMMM:    75        N        24.1961  -53.7673    6.3724
+  QMMM:    76        H        24.6934  -53.8182    7.2831
+  QMMM:    77        C        23.0732  -54.4667    5.8856
+  QMMM:    78        C        22.6062  -53.7837    4.7345
+  QMMM:    79        C        21.5148  -54.2554    4.0225
+  QMMM:    80        H        21.1913  -53.8000    3.0916
+  QMMM:    81        C        20.8765  -55.3705    4.4992
+  QMMM:    82        H        19.9179  -55.6392    4.0026
+  QMMM:    83        C        22.4447  -55.6747    6.3643
+  QMMM:    84        H        22.6254  -56.2236    7.2981
+  QMMM:    85        C        21.3461  -56.0680    5.6311
+  QMMM:    86        H        20.8082  -56.9541    6.1361
+  QMMM:    87        C        28.0182  -47.1002   15.1941
+  QMMM:    88        H        27.3152  -47.9882   15.0387
+  QMMM:    89        H        28.6195  -47.0108   14.2516
+  QMMM:    90        C        28.8874  -47.3856   16.4440
+  QMMM:    91        H        29.0650  -46.4460   17.0246
+  QMMM:    92        H        28.2956  -48.0577   17.1003
+  QMMM:    93        C        30.2827  -47.9664   16.2430
+  QMMM:    94        H        30.9550  -47.4933   15.4495
+  QMMM:    95        H        30.8012  -48.0420   17.2002
+  QMMM:    96        N        30.2952  -49.3949   15.8031
+  QMMM:    97        H        30.0095  -50.0861   16.4799
+  QMMM:    98        H        29.5674  -49.4553   15.1021
+  QMMM:    99        H        31.2239  -49.6811   15.4944
+  QMMM:   100        C        31.9236  -46.8244    9.3506
+  QMMM:   101        O        32.8237  -45.9571    9.2274
+  QMMM:   102        N        31.9736  -48.0261    8.6682
+  QMMM:   103        H        31.3486  -48.7270    8.8543
+  QMMM:   104        C        32.9704  -48.2871    7.7270
+  QMMM:   105        H        33.2943  -47.2876    7.2854
+  QMMM:   106        C        32.3582  -49.0590    6.5033
+  QMMM:   107        O        32.0193  -50.2467    6.6088
+  QMMM:   108        N        32.3699  -48.4481    5.2700
+  QMMM:   109        H        32.6050  -47.4251    5.2010
+  QMMM:   110        O        24.1973  -50.7336    8.7913
+  QMMM:   111        H        24.6787  -50.9178    7.9595
+  QMMM:   112        H        24.3082  -51.5401    9.2470
+  QMMM:   113        O        27.5160  -50.8966    7.9730
+  QMMM:   114        H        27.0029  -51.3570    8.6641
+  QMMM:   115        H        27.4510  -51.4779    7.1443
+  QMMM:   116       *C        26.9446  -48.7076    5.6164
+  QMMM:   117       *C        23.9299  -45.5102    9.8592
+  QMMM:   118       *C        22.4465  -49.9302   12.6055
+  QMMM:   119       *C        27.7475  -52.4287   13.9456
+  QMMM:   120       *C        23.1214  -51.4619    3.7204
+  QMMM:   121       *C        27.1347  -45.8870   15.4843
+  QMMM:   122       *C        30.7152  -46.6884   10.2468
+  QMMM:   123       *C        34.1675  -48.9312    8.3685
+  QMMM:   124       *C        31.6799  -49.0693    4.2035
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    !=================================
+ CHARMM>    !Set quantum regions
+ CHARMM>    !=================================
+ CHARMM>     
+  
+ CHARMM>    rxncor: define car point select atom A 81 C7 end
+ SELRPN>      1 atoms have been selected out of   3943
+  
+ CHARMM>    rxncor: define wat point select atom W 277 OH2 end
+ SELRPN>      1 atoms have been selected out of   3943
+  
+ CHARMM>    rxncor: define og point select atom A 81 OG end
+ SELRPN>      1 atoms have been selected out of   3943
+  
+ CHARMM>    rxncor: define prot point select atom W 277 H1 end
+ SELRPN>      1 atoms have been selected out of   3943
+  
+ CHARMM>    rxncor: define kcx point select atom A 84 OH1 end
+ SELRPN>      1 atoms have been selected out of   3943
+  
+ CHARMM>     
+  
+ CHARMM>    rxncor: define otemp distance car wat
+  
+ CHARMM>    rxncor: define twtmp distance car og
+  
+ CHARMM>    rxncor: define thtmp distance prot kcx
+  
+ CHARMM>     
+  
+ CHARMM>    rxncor: define rone scomb twtmp 1 otemp -1
+  
+ CHARMM>    rxncor: define rtwo scomb thtmp -1 thtmp 0
+  
+ CHARMM>     
+  
+ CHARMM>    rxncor: set nrxn 2 rone rtwo
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    !=================================
+ CHARMM>    !Set up umbrella center with a zero force constant so we can trace it
+ CHARMM>    !=================================
+ CHARMM>     
+  
+ CHARMM>    rxncor: umbr name rone kumb 0 del0 0 form 1
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+  
+ CHARMM>    rxncor: umbr name rtwo kumb 0 del0 0 form 1
+ WARNING from DECODF -- Zero length string being converted to 0.
+ WARNING from DECODF -- Zero length string being converted to 0.
+  
+ CHARMM>     
+  
+ CHARMM>    @rone
+  * WARNING * <PARSUB> Command ignored. Token not found: >RONE<
+
+      ***** LEVEL  0 WARNING FROM <PARSE1> *****
+      ***** Error in parameter substitution.
+      ******************************************
+      BOMLEV ( -2) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    @rtwo
+  * WARNING * <PARSUB> Command ignored. Token not found: >RTWO<
+
+      ***** LEVEL  0 WARNING FROM <PARSE1> *****
+      ***** Error in parameter substitution.
+      ******************************************
+      BOMLEV ( -2) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>     
+  
+ CHARMM>    calc PROBB = 0.5   !Filler for actual math
+Evaluating: 0.5
+ Parameter: PROBB <- "0.5"
+  
+ CHARMM>     
+  
+ CHARMM>    calc SIGMA = SQRT(@PROBB*(1-@PROBB)/@NMIN)
+ Parameter: PROBB -> "0.5"
+ Parameter: PROBB -> "0.5"
+ Parameter: NMIN -> "10"
+Evaluating: SQRT(0.5*(1-0.5)/10)
+ Parameter: SIGMA <- "0.158114"
+  
+ CHARMM>     
+  
+ CHARMM>    stop
+$$$$$$  New timer profile $$$$$
+ Total time                      0.23 Other:            0.00
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    MAXIMUM STACK SPACE USED IS   31030
+                    STACK CURRENTLY IN USE IS         0
+                    MOST SEVERE WARNING WAS AT LEVEL  0
+                    HEAP PRINTOUT-  HEAP SIZE  10240000
+                    SPACE CURRENTLY IN USE IS     31722
+                    MAXIMUM SPACE USED IS         38902
+                    FREE LIST
+            PRINHP> ADDRESS:         1 LENGTH:  10201098 NEXT:  10201701
+            PRINHP> ADDRESS:  10201701 LENGTH:      4770 NEXT:  10218221
+            PRINHP> ADDRESS:  10218221 LENGTH:      1870 NEXT:  10239461
+            PRINHP> ADDRESS:  10239461 LENGTH:       540 NEXT:         0
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.23  SECONDS 
+                         CPU TIME:     0.22  SECONDS 
