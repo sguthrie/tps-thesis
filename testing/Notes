@@ -1,0 +1,6 @@
+test1 contains files that are all in the reactant basin (basin A)
+test2 contains files that are in basin A, basin B, and one that is not clearly either. Since I used 300 timestep, upped it to 400
+test3 uses the same starting point as test2 using 400 timesteps to travel
+test4 uses starting point 160 with updated script that calculates probB every round
+test5 uses starting point 160 without updated script. Makes sure 160 will still be rejected with more data points
+

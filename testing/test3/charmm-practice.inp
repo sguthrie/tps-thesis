@@ -1,0 +1,296 @@
+
+
+bomlev -2
+
+! SHOULD BE ABLE TO SET WHEN WRITING THE SCRIPT
+! WILL BE FOR IMI ONLY
+! Will this pick velocities from the correct distribution?
+
+set NMIN 10
+set NMAX 100
+set ALPHA 2
+set LOWERBBASIN 1.3
+set HIGHERBBASIN 5.0
+set STEPNUM 400 !Might want to make that higher
+
+
+!=================================
+!Read topology and parameter files
+!=================================
+
+open unit 1 form read name "../imi_topology.inp"
+read rtf card unit 1
+close unit 1
+
+open unit 1 form read name "../imi_parameter.inp"
+read param card unit 1
+close unit 1
+
+set temp = 300
+
+
+!=================================
+!Read current psf and coordinates
+!=================================
+
+open read unit 30 card name "../imi.psf"
+read psf unit 30 card
+close unit 30
+
+open read unit 30 card name "../imi.crd"
+read coor unit 30 card
+close unit 30
+
+open read unit 47 file name "../imi_tpsv_traj_r1.dcd"
+trajectory query unit 47
+calc ntst = ?skip
+calc begst = @ntst*170
+calc stopst = @ntst*170
+trajectory firstu 47 nunit 1 skip @ntst begin @begst stop @stopst
+traj read
+close unit 47
+
+open write unit 30 card name "trajreadin.crd"
+write coor unit 30 card
+close unit 30
+
+!=================================
+!Set quantum regions
+!=================================
+
+QUANTUM SELECT ( -
+  ((resi 80) .and. (type C .or. type O)) .or. -
+  ((resi 81)) .or. -
+  ((resi 82) .and. (type N .or. type HN)) .or. -
+  ((resi 84) .and. (type CH .or. type OH1 .or. type OH2 .or. type NZ .or. type HZ1  -
+	.or. type CE .or. type HE1 .or. type HE2 .or. type CD .or. type HD1 -
+	.or. type HD2 .or. type CG .or. type HG1 .or. type HG2)) .or. -
+  ((resi 128) .and. (type HG1 .or. type OG .or. type CB .or. type HB1 -
+	.or. type HB2)) .or. -
+  ((resi 167) .and. (type CG .or. type CD1 .or. type HD1 .or. type NE1 .or. type HE1 -
+	.or. type CE2 .or. type CZ2 .or. type HZ2 .or. type CH2 .or. type HH2 -
+	.or. type CZ3 .or. type HZ3 .or. type CE3 .or. type HE3 .or. type CD2)) .or. -
+  ((resi 218) .and. (type NZ .or. type HZ1 .or. type HZ2 .or. type HZ3 .or. type CE -
+	.or. type HE1 .or. type HE2 .or. type CD .or. type HD1 .or. type HD2 .or. -
+	type CG .or. type HG1 .or. type HG2)) .or. -
+  ((resi 220) .and. (type C .or. type O)) .or. -
+  ((resi 221) .and. (type C .or. type O .or. type CA .or. type HA .or. type N .or. type HN)) .or. -
+  ((resi 222) .and. (type N .or. type HN)) .or. -
+  ((resi 276)) .or. -
+  ((resi 277)) .or. -
+  ((resi 80) .and. (type CA)) .or. -
+  ((resi 82) .and. (type CA)) .or. -
+  ((resi 84) .and. (type CB)) .or. -
+  ((resi 128) .and. (type CA)) .or. -
+  ((resi 167) .and. (type CB)) .or. -
+  ((resi 218) .and. (type CB)) .or. -
+  ((resi 220) .and. (type CA)) .or. -
+  ((resi 221) .and. (type CB)) .or. -
+  ((resi 222) .and. (type CA))) end -
+glnk select ( -
+  ((resi 80) .and. (type CA)) .or. -
+  ((resi 82) .and. (type CA)) .or. -
+  ((resi 84) .and. (type CB)) .or. -
+  ((resi 128) .and. (type CA)) .or. -
+  ((resi 167) .and. (type CB)) .or. -
+  ((resi 218) .and. (type CB)) .or. -
+  ((resi 220) .and. (type CA)) .or. -
+  ((resi 221) .and. (type CB)) .or. -
+  ((resi 222) .and. (type CA))) end -
+charge 0 -
+remove am1
+
+
+!=================================
+!Set rxncoor
+!=================================
+
+rxncor: define car point select atom A 81 C7 end
+rxncor: define wat point select atom W 277 OH2 end
+rxncor: define og point select atom A 81 OG end
+rxncor: define prot point select atom W 277 H1 end
+rxncor: define kcx point select atom A 84 OH1 end
+
+rxncor: define otemp distance car wat
+rxncor: define twtmp distance car og
+rxncor: define thtmp distance prot kcx
+
+rxncor: define rone scomb twtmp 1 otemp -1
+rxncor: define rtwo scomb thtmp -1 thtmp 0
+
+rxncor: set nrxn 2 rone rtwo
+
+
+!=================================
+!Set up umbrella center with a zero force constant so we can trace it
+!=================================
+
+rxncor: umbr name rone kumb 0 del0 0 form 1
+rxncor: umbr name rtwo kumb 0 del0 0 form 1
+
+
+!=================================
+!NMIN trajectories dynamics
+!=================================
+
+open write unit 341 card name rsum1_test.txt
+open write unit 342 card name rsum2_test.txt
+
+rxncor: trace rone unit 341 freq 1
+rxncor: trace rtwo unit 342 freq 1
+
+close unit 341
+close unit 342
+
+set COUNTER 0
+ 
+label REPLOOP
+
+open read unit 30 card name "trajreadin.crd"
+read coor unit 30 card
+close unit 30
+
+RAND OLDR
+calc theseed = ?rand * 625662
+
+open write unit 341 card name rsum1_@COUNTER.txt
+open write unit 342 card name rsum2_@COUNTER.txt
+
+Dynamics Leap -
+       finalt 300 firstt 300 ichecw 0 ihbfrq 0 ilbfrq 0 -
+       inbfrq -1 iprfrq 10 iscale 0 iseed @theseed iuncrd -1 -
+       iunread -1 iunvelo -1 iunwrite -1 nprint 50 nsavcrd 1 -
+       nsavvelo 0 nstep @STEPNUM scale 1 tbath 300 teminc 0 -
+       timestp 0.001 twindh 0 twindl 0 vsend true
+
+
+open write unit 30 card name "final_@COUNTER.crd"
+write coor card unit 30
+close unit 30
+
+close unit 341
+close unit 342
+
+increment COUNTER by 1
+if COUNTER .LT. @NMIN goto REPLOOP
+
+
+!=================================
+!NMIN PROBB Calculation
+!=================================
+
+set SUMHBI 0
+set I 0
+LABEL LOOP
+
+open read unit 30 card name "final_@I.crd"
+read coor unit 30 card
+close unit 30
+
+QUICK sele atom A 81 C7 end sele atom W 277 OH2 end
+calc CARWATDIST = ?DIST
+
+QUICK sele atom A 81 OG end sele atom A 81 C7 end
+calc CAROGDIST = ?DIST
+
+calc COOR = @CAROGDIST - @CARWATDIST
+
+set HBI 0
+
+IF COOR .GE. @LOWERBBASIN THEN set HBI 1	
+IF COOR .GE. @HIGHERBBASIN THEN set HBI 0
+
+INCREMENT SUMHBI by @HBI
+
+INCREMENT I by 1
+if I .LT. @NMIN THEN GOTO LOOP
+	
+
+calc PROBB = @SUMHBI/@NMIN
+calc SIGMA = SQRT(@PROBB*(1-@PROBB)/@NMIN)
+
+calc LOWER = @PROBB - @ALPHA*@SIGMA
+calc HIGHER = @PROBB + @ALPHA*@SIGMA
+
+if LOWER .GT. 0.5 THEN STOP
+if HIGHER .LT. 0.5 THEN STOP
+
+!=================================
+!NMAX trajectories dynamics
+!=================================
+
+label RLOOP
+
+open read unit 30 card name "trajreadin.crd"
+read coor unit 30 card
+close unit 30
+
+RAND OLDR
+calc theseed = ?rand * 625662
+
+open write unit 341 card name rsum1_@COUNTER.txt
+open write unit 342 card name rsum2_@COUNTER.txt
+
+Dynamics Leap -
+       finalt 300 firstt 300 ichecw 0 ihbfrq 0 ilbfrq 0 -
+       inbfrq -1 iprfrq 10 iscale 0 iseed @theseed iuncrd -1 -
+       iunread -1 iunvelo -1 iunwrite -1 nprint 50 nsavcrd 1 -
+       nsavvelo 0 nstep @STEPNUM scale 1 tbath 300 teminc 0 -
+       timestp 0.001 twindh 0 twindl 0 
+
+open write unit 30 card name "final_@COUNTER.crd"
+write coor unit 30 card
+close unit 30
+
+close unit 341
+close unit 342
+
+increment COUNTER by 1
+if COUNTER .LT. @NMAX goto RLOOP
+
+
+!=================================
+!Second round of math to check if in TSE
+!=================================
+
+set SUMHBI 0
+set I 0
+LABEL SECLOOP
+
+open read unit 30 card name "final_@I.crd"
+read coor unit 30 card
+close unit 30
+
+QUICK sele atom A 81 C7 end sele atom W 277 OH2 end
+calc CARWATDIST = ?DIST
+
+QUICK sele atom A 81 OG end sele atom A 81 C7 end
+calc CAROGDIST = ?DIST
+
+calc COOR = @CAROGDIST - @CARWATDIST
+
+set HBI 0
+
+IF COOR .GE. @LOWERBBASIN THEN set HBI 1	
+IF COOR .GE. @HIGHERBBASIN THEN set HBI 0
+
+INCREMENT SUMHBI by @HBI
+
+INCREMENT I by 1
+if I .LT. @NMAX THEN GOTO SECLOOP
+
+calc BIGPROBB = @SUMHBI/@NMAX
+calc BIGSIGMA = SQRT(@BIGPROBB*(1-@BIGPROBB)/@NMAX)
+
+calc BIGLOWER = @BIGPROBB - @ALPHA*@BIGSIGMA
+calc BIGHIGHER = @BIGPROBB + @ALPHA*@BIGSIGMA
+
+if BIGLOWER .GT. 0.5 THEN STOP
+if BIGHIGHER .LT. 0.5 THEN STOP
+
+ECHO BIGPROBB
+ECHO BIGSIGMA
+ECHO BIGLOWER
+ECHO BIGHIGHER
+
+stop

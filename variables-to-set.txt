@@ -1,0 +1,28 @@
+Variables to set (all precided by %)
+Note: need to remove rsum1_test.txt and rsum2_test.txt
+
+
+Nmin
+Nmax
+Alpha
+LowerBbasin
+UpperBbasin
+Stepnum
+
+topology_read_in_file
+parameter_read_in_file
+psf_read_in_file
+crd_read_in_file
+dcd_read_in_file
+Num_to_pick (this is the dcd frame)
+
+Quantum_region
+
+rxncoor
+
+rxncoor_zero_umbrella
+
+Random_inp_num (seen twice)
+
+Selection_param1 (seen twice)
+Selection_param2 (seen twice)
