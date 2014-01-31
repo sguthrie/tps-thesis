@@ -41,7 +41,7 @@ open read unit 30 card name "../imi.crd"
 read coor unit 30 card
 close unit 30
 
-open read unit 47 file name "../imi_tpsv_traj_r1.dcd"
+open read unit 47 file name "~/tps-thesis-highmem/imi_tpsv_traj_r1.dcd"
 trajectory query unit 47
 calc ntst = ?skip
 calc begst = @ntst*160

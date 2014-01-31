@@ -44,8 +44,8 @@ close unit 30
 open read unit 47 file name "../imi_tpsv_traj_r1.dcd"
 trajectory query unit 47
 calc ntst = ?skip
-calc begst = @ntst*90
-calc stopst = @ntst*90
+calc begst = @ntst*170
+calc stopst = @ntst*170
 trajectory firstu 47 nunit 1 skip @ntst begin @begst stop @stopst
 traj read
 close unit 47

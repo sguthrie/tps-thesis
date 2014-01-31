@@ -41,7 +41,7 @@ open read unit 30 card name "../imi.crd"
 read coor unit 30 card
 close unit 30
 
-open read unit 47 file name "../imi_tpsv_traj_r1.dcd"
+open read unit 47 file name "~/tps-thesis-highmem/testing/imi_tpsv_traj_r1.dcd"
 trajectory query unit 47
 calc ntst = ?skip
 calc begst = @ntst*90
@@ -124,9 +124,6 @@ rxncor: define rtwo scomb thtmp -1 thtmp 0
 
 rxncor: set nrxn 2 rone rtwo
 
-RAND OLDR
-calc theseed = ?rand * 625662
-
 
 !=================================
 !Set up umbrella center with a zero force constant so we can trace it
@@ -148,6 +145,9 @@ label REPLOOP
 open read unit 30 card name "trajreadin.crd"
 read coor unit 30 card
 close unit 30
+
+RAND OLDR
+calc theseed = ?rand * 625662
 
 open write unit 341 card name rsum1_@COUNTER.txt
 open write unit 342 card name rsum2_@COUNTER.txt
